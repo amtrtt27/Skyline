@@ -1,0 +1,16 @@
+{
+  "name": "lifelines-mvp",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "install:all": "npm --prefix client install && npm --prefix server install",
+    "dev": "concurrently -n server,client -c cyan,magenta \"npm --prefix server start\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix client run build",
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server start",
+    "start": "npm --prefix server start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

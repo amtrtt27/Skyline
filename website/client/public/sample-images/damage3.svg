@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <rect width="900" height="600" fill="#e7f5ff"/>
+  <rect x="90" y="120" width="720" height="400" rx="12" fill="#fff" stroke="#74c0fc"/>
+  <path d="M190 430 L260 350 L330 420 L420 300 L520 430" fill="none" stroke="#1971c2" stroke-width="10" stroke-linecap="round"/>
+  <path d="M620 240 L760 380" stroke="#f59f00" stroke-width="12" stroke-linecap="round"/>
+  <text x="110" y="95" font-family="Arial, sans-serif" font-size="28" fill="#1864ab">Sample Damage Photo C</text>
+  <text x="110" y="560" font-family="Arial, sans-serif" font-size="18" fill="#1c7ed6">Water intrusion + roof damage (placeholder)</text>
+</svg>
