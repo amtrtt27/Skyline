@@ -139,3 +139,20 @@ Use these for a smooth demo:
 - ✅ Bidding scoring follows exact weights (40/20/20/20)
 - ✅ Approve & issue license generates an ID and updates project state
 - ✅ Resource matching uses haversine and shows distance + savings + CO₂
+
+
+## Production (single domain)
+
+- The Express server can serve the built React app when `NODE_ENV=production`.
+- Local prod-like run:
+  1) `npm install`
+  2) `npm run install:all`
+  3) `npm run start:prod`
+
+### Dev behavior
+- Client API base defaults to `/api`.
+- In dev, Vite proxies `/api` to `http://localhost:3001`.
+
+### Deploy behind lifeskylines.com
+- Point your hosting platform's custom domain to the deployed service.
+- Set server env `CLIENT_ORIGIN=https://lifeskylines.com` (and/or `https://www.lifeskylines.com`) if you want strict CORS.
