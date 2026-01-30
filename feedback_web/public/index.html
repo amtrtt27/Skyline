@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Skyline — Feedback</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <div class="brand">
+      <div class="logoMark" aria-hidden="true"></div>
+      <div>
+        <h1>Skyline</h1>
+        <p class="sub">Share feedback & get recommendations</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <section class="card">
+      <h2>Feedback form</h2>
+
+      <form id="feedbackForm">
+        <div class="row">
+          <label>Stakeholder type</label>
+          <select name="stakeholder" required>
+            <option value="">Select…</option>
+            <option>Government agency</option>
+            <option>NGO / Humanitarian org</option>
+            <option>Reconstruction authority</option>
+            <option>Contractor / Vendor</option>
+            <option>Community representative</option>
+            <option>Researcher / Student</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="two">
+          <div class="row">
+            <label>Organization (optional)</label>
+            <input name="org" placeholder="e.g., Ministry / NGO / Company" />
+          </div>
+          <div class="row">
+            <label>Country / Region (optional)</label>
+            <input name="country" placeholder="e.g., Qatar / Vietnam / Global" />
+          </div>
+        </div>
+
+        <div class="row">
+          <label>Main use case</label>
+          <input name="use_case" placeholder="e.g., rapid damage assessment, debris reuse planning…" />
+        </div>
+
+        <div class="three">
+          <div class="row">
+            <label>Overall value (1–5)</label>
+            <input name="rating_overall" type="number" min="1" max="5" value="5" required />
+          </div>
+          <div class="row">
+            <label>Usability (1–5)</label>
+            <input name="rating_usability" type="number" min="1" max="5" value="5" required />
+          </div>
+          <div class="row">
+            <label>Trust/Transparency (1–5)</label>
+            <input name="rating_trust" type="number" min="1" max="5" value="5" required />
+          </div>
+        </div>
+
+        <fieldset class="row">
+          <legend>Which areas should we prioritize?</legend>
+
+          <!-- These match SKYLINE’s core components -->
+          <label class="chk"><input type="checkbox" name="priority" value="AI damage detection & debris estimation" />
+            AI damage detection & debris estimation</label>
+
+          <label class="chk"><input type="checkbox" name="priority" value="Geospatial mapping & building context" />
+            Geospatial mapping & building context</label>
+
+          <label class="chk"><input type="checkbox" name="priority" value="Ontology-based material catalog & matching" />
+            Ontology-based material catalog & matching</label>
+
+          <label class="chk"><input type="checkbox" name="priority" value="Procurement & transparent bidding" />
+            Procurement & transparent bidding</label>
+
+          <label class="chk"><input type="checkbox" name="priority" value="Approval/licensing workflow & audit log" />
+            Approval/licensing workflow & audit log</label>
+        </fieldset>
+
+        <div class="row">
+          <label>What concerns or risks do you see?</label>
+          <textarea name="risks" rows="3" placeholder="e.g., data quality, connectivity, adoption friction…"></textarea>
+        </div>
+
+        <div class="row">
+          <label>Any additional feedback?</label>
+          <textarea name="comments" rows="4" placeholder="What should we change or add?"></textarea>
+        </div>
+
+        <div class="row">
+          <label>Email (optional, if you want a follow-up)</label>
+          <input name="email" type="email" placeholder="name@email.com" />
+        </div>
+
+        <div class="actions">
+          <button type="submit">Submit feedback</button>
+          <span id="status" class="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+
+    <aside class="card">
+      <h2>Instant recommendations</h2>
+      <p class="muted">
+        Select priorities on the left to see suggested next steps (for MVP & pilot).
+      </p>
+
+      <div id="recoBox" class="recoBox">
+        <p class="muted">Pick at least one priority area to get recommendations.</p>
+      </div>
+
+      <hr />
+
+      <p class="muted small">
+        Admin view: <a href="/admin.html">/admin.html</a>
+      </p>
+    </aside>
+  </main>
+
+  <footer class="wrap foot">
+    <span class="muted small">SKYLINE — Feedback portal</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
