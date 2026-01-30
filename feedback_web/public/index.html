@@ -9,101 +9,132 @@
 <body>
   <header class="wrap">
     <div class="brand">
-        <img
-            src="/assets/skyline_logo.svg"
-            alt="Skyline logo"
-            class="logo"
-        />
-        <div>
-            <h1>SKYLINE</h1>
-            <p class="sub">Share feedback & get recommendations</p>
-        </div>
+      <img
+        src="/assets/skyline_logo.svg"
+        alt="Skyline logo"
+        class="logo"
+      />
+      <div>
+        <h1>SKYLINE</h1>
+        <p class="sub">Feedback for judges & participants — quick, anonymous, helpful</p>
+      </div>
     </div>
   </header>
 
   <main class="wrap grid">
     <section class="card">
       <h2>Feedback form</h2>
+      <p class="muted">
+        This helps us improve our demo, pitch, and product direction. It takes ~1 minute.
+      </p>
 
       <form id="feedbackForm">
-        <div class="row">
-          <label>Stakeholder type</label>
-          <select name="stakeholder" required>
-            <option value="">Select…</option>
-            <option>Government agency</option>
-            <option>NGO / Humanitarian org</option>
-            <option>Reconstruction authority</option>
-            <option>Contractor / Vendor</option>
-            <option>Community representative</option>
-            <option>Researcher / Student</option>
-            <option>Other</option>
-          </select>
-        </div>
-
         <div class="two">
           <div class="row">
-            <label>Organization (optional)</label>
-            <input name="org" placeholder="e.g., Ministry / NGO / Company" />
+            <label>You are...</label>
+            <select name="stakeholder" required>
+              <option value="">Select…</option>
+              <option>Judge</option>
+              <option>Student</option>
+              <option>Faculty / Staff</option>
+              <option>Alumni</option>
+              <option>Other</option>
+            </select>
           </div>
+
           <div class="row">
-            <label>Country / Region (optional)</label>
-            <input name="country" placeholder="e.g., Qatar / Vietnam / Global" />
+            <label>How familiar are you with disaster rebuilding?</label>
+            <select name="familiarity" required>
+              <option value="">Select…</option>
+              <option value="0">0 — Not familiar</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5 — Very familiar</option>
+            </select>
           </div>
         </div>
 
         <div class="row">
-          <label>Main use case</label>
-          <input name="use_case" placeholder="e.g., rapid damage assessment, debris reuse planning…" />
+          <label>In one phrase, what did you think Skyline does?</label>
+          <input name="one_liner" placeholder="e.g., turns damage photos into a rebuild plan + reuse materials" />
+        </div>
+
+        <div class="row">
+          <label>Which demo use case did you see / imagine?</label>
+          <input name="use_case" placeholder="e.g., assess damage → estimate debris → plan rebuild → track reuse" />
+        </div>
+
+        <h3 style="margin:18px 0 6px;">Quick scores (1–5)</h3>
+        <div class="three">
+          <div class="row">
+            <label>Clarity</label>
+            <input name="rating_clarity" type="number" min="1" max="5" value="5" required />
+          </div>
+          <div class="row">
+            <label>Innovation</label>
+            <input name="rating_innovation" type="number" min="1" max="5" value="5" required />
+          </div>
+          <div class="row">
+            <label>Feasibility</label>
+            <input name="rating_feasibility" type="number" min="1" max="5" value="5" required />
+          </div>
         </div>
 
         <div class="three">
           <div class="row">
-            <label>Overall value (1–5)</label>
-            <input name="rating_overall" type="number" min="1" max="5" value="5" required />
-          </div>
-          <div class="row">
-            <label>Usability (1–5)</label>
+            <label>Usability</label>
             <input name="rating_usability" type="number" min="1" max="5" value="5" required />
           </div>
           <div class="row">
-            <label>Trust/Transparency (1–5)</label>
+            <label>Trust / Credibility</label>
             <input name="rating_trust" type="number" min="1" max="5" value="5" required />
+          </div>
+          <div class="row">
+            <label>Overall</label>
+            <input name="rating_overall" type="number" min="1" max="5" value="5" required />
           </div>
         </div>
 
+        <div class="row">
+          <label>What was the most confusing part?</label>
+          <textarea name="confusing" rows="3" placeholder="One thing that didn’t click for you…"></textarea>
+        </div>
+
         <fieldset class="row">
-          <legend>Which areas should we prioritize?</legend>
+          <legend>What should we improve to make this better?</legend>
 
-          <!-- These match SKYLINE’s core components -->
-          <label class="chk"><input type="checkbox" name="priority" value="AI damage detection & debris estimation" />
-            AI damage detection & debris estimation</label>
+          <label class="chk"><input type="checkbox" name="priority" value="Make the workflow clearer (steps + labels)" />
+            Make the workflow clearer (steps + labels)</label>
 
-          <label class="chk"><input type="checkbox" name="priority" value="Geospatial mapping & building context" />
-            Geospatial mapping & building context</label>
+          <label class="chk"><input type="checkbox" name="priority" value="Better visuals (map layers, before/after, dashboard)" />
+            Better visuals (map layers, before/after, dashboard)</label>
 
-          <label class="chk"><input type="checkbox" name="priority" value="Ontology-based material catalog & matching" />
-            Ontology-based material catalog & matching</label>
+          <label class="chk"><input type="checkbox" name="priority" value="More trust signals (confidence scores, explanations)" />
+            More trust signals (confidence scores, explanations)</label>
 
-          <label class="chk"><input type="checkbox" name="priority" value="Procurement & transparent bidding" />
-            Procurement & transparent bidding</label>
+          <label class="chk"><input type="checkbox" name="priority" value="Impact metrics (time saved, debris reused, cost reduction)" />
+            Impact metrics (time saved, debris reused, cost reduction)</label>
 
-          <label class="chk"><input type="checkbox" name="priority" value="Approval/licensing workflow & audit log" />
-            Approval/licensing workflow & audit log</label>
+          <label class="chk"><input type="checkbox" name="priority" value="Feature depth (debris reuse matching / bidding / approvals)" />
+            Feature depth (debris reuse matching / bidding / approvals)</label>
+
+          <label class="chk">
+            <input type="checkbox" name="priority" value="Other" id="priorityOther" />
+            Other (Please specify)
+            </label>
+
+            <div class="row" id="otherWrap" style="margin-top:8px; display:none;">
+            <label for="otherText">If other, please specify</label>
+            <input id="otherText" name="other_text" placeholder="Write your suggestion…" />
+            </div>
+
         </fieldset>
 
         <div class="row">
-          <label>What concerns or risks do you see?</label>
-          <textarea name="risks" rows="3" placeholder="e.g., data quality, connectivity, adoption friction…"></textarea>
-        </div>
-
-        <div class="row">
-          <label>Any additional feedback?</label>
-          <textarea name="comments" rows="4" placeholder="What should we change or add?"></textarea>
-        </div>
-
-        <div class="row">
-          <label>Email (optional, if you want a follow-up)</label>
-          <input name="email" type="email" placeholder="name@email.com" />
+          <label>Email (optional, if you’re ok with a follow-up)</label>
+          <input name="email" type="email" placeholder="name@andrew.cmu.edu (or personal)" />
         </div>
 
         <div class="actions">
@@ -113,22 +144,7 @@
       </form>
     </section>
 
-    <aside class="card">
-      <h2>Instant recommendations</h2>
-      <p class="muted">
-        Select priorities on the left to see suggested next steps (for MVP & pilot).
-      </p>
-
-      <div id="recoBox" class="recoBox">
-        <p class="muted">Pick at least one priority area to get recommendations.</p>
-      </div>
-
-      <hr />
-
-      <p class="muted small">
-        Admin view: <a href="/admin.html">/admin.html</a>
-      </p>
-    </aside>
+    
   </main>
 
   <footer class="wrap foot">
