@@ -1,7 +1,12 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(
   cors({
@@ -907,6 +912,19 @@ app.post('/api/admin/seed', requireRole(['admin']), (_req, res) => {
 // Start
 // ---------------------------
 const PORT = process.env.PORT || 3001;
+// ---------------------------
+// Serve client build in production
+// ---------------------------
+if (process.env.NODE_ENV === 'production') {
+  const distPath = path.resolve(__dirname, '../client/dist');
+  app.use(express.static(distPath));
+  // SPA fallback (do not intercept API routes)
+  app.get('*', (req, res) => {
+    if (req.path.startsWith('/api')) return res.status(404).json({ message: 'Not found' });
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
+
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`LifeLines API listening on http://localhost:${PORT}/api`);
